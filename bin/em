@@ -1,0 +1,5 @@
+#!/usr/bin/env node --harmony
+
+Em = require('../lib/em')
+
+var em = Em()
