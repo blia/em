@@ -3,8 +3,10 @@ var log = require('../lib/logger')
   , Container = transpiler.Container
   , FileResolver = transpiler.FileResolver
   , BundleFormatter = transpiler.formatters.bundle
+  , log = require('../lib/logger')
 
 module.exports = function () {
+  log = log.start('Es6 modules started')
   return function (fn) {
     var container = new Container({
       resolvers: [new FileResolver(['./'])],
@@ -13,9 +15,11 @@ module.exports = function () {
     try {
       container.getModule('app/app.js')
       container.write('build/es5.js')
-      return fn(null, 'Es6 modules: buil success')
+      log.finish('Es6 modules complete')
+      return fn(null, {status: 'ok'})
     } catch (err) {
-      return fn('Es6 modules: ' + err.toString())
+      log.error('Es6 modules ' + err.toString())
+      return fn(null, {status: 'fail'})
     }
   }
 }
