@@ -1,6 +1,8 @@
 
 module.exports = {
-    es6modules: require('./es6-modules')
+    es6Modules: require('./es6-modules')
   , emblemHandlebars: require('./emblem-handlebars')
   , stylus: require('./stylus')
+  , watch: require('./watch')
+  , static: require('./static')
 }

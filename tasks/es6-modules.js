@@ -1,4 +1,4 @@
-var log = require('../lib/logger')
+var logger = require('../lib/logger')
   , transpiler = require('es6-module-transpiler')
   , Container = transpiler.Container
   , FileResolver = transpiler.FileResolver
@@ -6,7 +6,7 @@ var log = require('../lib/logger')
   , log = require('../lib/logger')
 
 module.exports = function () {
-  log = log.start('Es6 modules started')
+  var log = logger.start('Es6 modules started')
   return function (fn) {
     var container = new Container({
       resolvers: [new FileResolver(['./'])],
