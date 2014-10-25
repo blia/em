@@ -1,4 +1,4 @@
-var log = require('../lib/logger')
+var logger = require('../lib/logger')
   , emblem = require('emblem')
   , compiler = require('ember-template-compiler')
   , thunkify = require('thunkify')
@@ -17,7 +17,7 @@ var log = require('../lib/logger')
 
 
 module.exports = function () {
-  log = log.start('Templates started')
+  var log = logger.start('Templates started')
   return function *() {
     var files
       , data = {}

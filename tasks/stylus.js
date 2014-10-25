@@ -1,8 +1,9 @@
-var log = require('../lib/logger')
+var logger = require('../lib/logger')
   , fs = require('fs')
   , stylus = require('stylus')
+  , autoprefixer = require('autoprefixer-stylus')
 module.exports = function () {
-  log = log.start('Stylus started')
+  var log = logger.start('Stylus started')
   return function (fn) {
     var style
     try {
@@ -29,6 +30,8 @@ module.exports = function () {
     }
     stylus(style)
       .set('filename', 'app/styles/app.styl')
+      .use(autoprefixer())
+      .set('sourcemap', {inline: true, comment: false})
       .render(writeStyles)
   }
 }
