@@ -1,6 +1,6 @@
 {
   "name": "em",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.4",
   "description": "Yet Another Ember Development Kit",
   "main": "lib/em.js",
   "scripts": {
